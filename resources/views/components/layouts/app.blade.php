@@ -9,7 +9,7 @@
   <script src="/template/assets/static/js/initTheme.js"></script>
   <div id="app">
     <div id="main" class="layout-horizontal">
-      <header class="mb-5">
+      <header class="mb-3 mb-sm-5">
         @include('components.layouts.partials.navbar')
       </header>
       <div class="content-wrapper container">
