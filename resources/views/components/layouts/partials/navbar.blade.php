@@ -12,15 +12,12 @@
           </div>
           <div class="text">
             <h6 class="user-dropdown-name">John Ducky</h6>
-            <p class="user-dropdown-status text-sm text-muted">Member</p>
+            <p class="user-dropdown-status text-sm text-muted">john@gmail.com</p>
           </div>
         </a>
         <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
-          <li><a class="dropdown-item" href="#">My Account</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+          <li><a wire:navigate class="dropdown-item" href="{{ route('profile.index') }}">My Account</a></li>
+          <hr class="dropdown-divider">
           <li><a class="dropdown-item" href="auth-login.html">Logout</a></li>
         </ul>
       </div>
