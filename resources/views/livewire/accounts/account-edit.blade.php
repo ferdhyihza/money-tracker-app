@@ -21,6 +21,9 @@
   <div class="page-content">
     <section class="section">
       <div class="card">
+        <div class="card-header">
+          <button wire:click='delete({{ $id }})' wire:confirm='Are you sure?' class="btn btn-danger float-end">Delete Account</button>
+        </div>
         <div class="card-content">
           <div class="card-body">
             <form wire:submit.prevent='update' method="post" class="form form-vertical">

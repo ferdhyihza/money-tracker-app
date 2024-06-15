@@ -35,6 +35,7 @@ class AccountEdit extends Component
     public function render()
     {
         return view('livewire.accounts.account-edit', [
+            'id' => $this->account->id,
             'types' => Account::select('type')->distinct()->get()
         ]);
     }
@@ -44,6 +45,13 @@ class AccountEdit extends Component
         $this->validate();
         // dd($this->all());
         $this->account->update($this->all());
+        return $this->redirect(route('accounts.index'), navigate: true);
+    }
+
+    public function delete($id)
+    {
+        $account = Account::find($id);
+        $account->delete();
         return $this->redirect(route('accounts.index'), navigate: true);
     }
 }
