@@ -53,7 +53,7 @@
                     <div class="form-group">
                       <label for="balance">Balance</label>
                       <input wire:model='balance' type="number" id="balance" class="form-control" name="balance" placeholder="Rp 0,00">
-                      @error('type')
+                      @error('balance')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror
                     </div>
