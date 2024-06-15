@@ -21,13 +21,16 @@
     <section class="section">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Account List</h4>
+          <div class="row">
+            <div class="col-6">
+              <h4 class="card-title">Account List</h4>
+            </div>
+            <div class="col-6">
+              <a wire:navigate href="{{ route('accounts.create') }}" class="btn btn-primary float-end">Add Account</a>
+            </div>
+          </div>
         </div>
         <div class="card-content">
-          <div class="card-body">
-            <p class="card-text">List of your accounts
-            </p>
-          </div>
 
           <!-- Table with no outer spacing -->
           <div class="table-responsive">
@@ -52,6 +55,7 @@
               @endforeach
             </table>
           </div>
+
         </div>
       </div>
     </section>
