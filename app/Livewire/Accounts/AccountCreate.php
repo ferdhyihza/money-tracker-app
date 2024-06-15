@@ -20,7 +20,7 @@ class AccountCreate extends Component
     #[Validate('required')]
     public $type;
 
-    #[Validate('required')]
+    #[Validate('required|numeric')]
     public $balance;
 
     public function render()
@@ -33,6 +33,7 @@ class AccountCreate extends Component
     public function store()
     {
         $this->validate();
+        dd($this);
         Account::create($this->all());
         return $this->redirect(route('accounts.index'), navigate: true);
     }
