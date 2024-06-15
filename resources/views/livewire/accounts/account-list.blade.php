@@ -46,8 +46,10 @@
                 @foreach ($accounts as $account)
                 @if($type->type == $account->type)
                 <tr>
-                  <td class="text-ijo">{{ $account->name }}</td>
-                  <td class="{{ $account->balance > 0 ? 'text-success' : 'text-danger' }}">@idr($account->balance)</td>
+
+                  <td class="text-ijo"><a wire:navigate href="{{ route('accounts.edit', [$account->id]) }}">{{ $account->name }}</a></td>
+                  <td class="{{ $account->balance > 0 ? 'text-success' : 'text-danger' }}"><a wire:navigate href="{{ route('accounts.edit', [$account->id]) }}">@idr($account->balance)</a></td>
+
                 </tr>
                 @endif
                 @endforeach

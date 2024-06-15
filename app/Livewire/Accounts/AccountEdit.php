@@ -6,12 +6,11 @@ use App\Models\Account;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
-use Illuminate\Support\Facades\DB;
 
-class AccountCreate extends Component
+class AccountEdit extends Component
 {
 
-    #[Title('Add Account')]
+    #[Title('Edit Account')]
 
     #[Validate('required')]
     public $name;
@@ -23,17 +22,28 @@ class AccountCreate extends Component
     #[Validate('required|numeric')]
     public $balance;
 
+    public $account;
+
+    public function mount($id)
+    {
+        $this->account = Account::find($id);
+        $this->name = $this->account->name;
+        $this->type = $this->account->type;
+        $this->balance = $this->account->balance;
+    }
+
     public function render()
     {
-        return view('livewire.accounts.account-create', [
+        return view('livewire.accounts.account-edit', [
             'types' => Account::select('type')->distinct()->get()
         ]);
     }
 
-    public function store()
+    public function update()
     {
         $this->validate();
-        Account::create($this->all());
+        // dd($this->all());
+        $this->account->update($this->all());
         return $this->redirect(route('accounts.index'), navigate: true);
     }
 }
